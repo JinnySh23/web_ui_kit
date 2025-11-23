@@ -1,0 +1,180 @@
+/* ===== ДЕМО ОФОРМЛЕНИЕ ===== */
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #1c1f24;
+    color: #f4f4f4;
+}
+
+.demo h1 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.demo h2 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.demo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0 4px;
+}
+
+.demo-buttons > button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #3b4252;
+    background: #2a2f3a;
+    color: #e5e9f0;
+    cursor: pointer;
+    transition: background 0.12s ease-out, border-color 0.12s ease-out;
+}
+
+.demo-buttons > button:hover {
+    background: #323846;
+    border-color: #4c566a;
+}
+
+.demo-output {
+    font-size: 13px;
+    color: #d8dee9;
+    min-height: 18px;
+}
+
+/* ===== UI RADIO ===== */
+
+.ui-radio {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    color: #e3e7f0;
+}
+
+/* маленький вариант */
+.ui-radio_sm {
+    font-size: 13px;
+}
+
+/* скрытый input */
+.ui-radio__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* визуальный круг */
+
+.ui-radio__circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #4a4f5c;
+    background: #23262d;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background 0.12s ease-out,
+        border-color 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        transform 0.05s ease-out;
+    flex-shrink: 0;
+}
+
+/* маленький размер */
+
+.ui-radio_sm .ui-radio__circle {
+    width: 16px;
+    height: 16px;
+}
+
+/* внутренняя точка */
+
+.ui-radio__circle::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2d7dff;
+    opacity: 0;
+    transform: scale(0.4);
+    transition:
+        opacity 0.12s ease-out,
+        transform 0.12s ease-out,
+        background 0.12s ease-out;
+}
+
+/* checked */
+
+.ui-radio_checked .ui-radio__circle {
+    border-color: #2d7dff;
+    background: #1b2130;
+    box-shadow: 0 0 0 1px rgba(45, 125, 255, 0.4);
+}
+
+.ui-radio_checked .ui-radio__circle::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* hover */
+
+.ui-radio:hover .ui-radio__circle {
+    border-color: #5a6274;
+}
+
+.ui-radio:hover.ui-radio_checked .ui-radio__circle {
+    box-shadow:
+        0 0 0 1px rgba(45, 125, 255, 0.5),
+        0 0 4px rgba(45, 125, 255, 0.7);
+}
+
+/* active */
+
+.ui-radio:active .ui-radio__circle {
+    transform: scale(0.96);
+}
+
+/* focus-visible */
+
+.ui-radio__input:focus-visible + .ui-radio__circle {
+    box-shadow:
+        0 0 0 2px #ffffff,
+        0 0 0 4px rgba(45, 125, 255, 0.8);
+}
+
+/* disabled */
+
+.ui-radio_disabled {
+    cursor: default;
+    opacity: 0.55;
+}
+
+.ui-radio_disabled .ui-radio__label {
+    cursor: default;
+}
+
+/* подпись */
+
+.ui-radio__label {
+    line-height: 1.3;
+}

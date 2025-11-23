@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Radio demo</title>
+    <link rel="stylesheet" href="radio.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI Radio Buttons</h1>
+
+    <h2>Группа 1: Режим работы</h2>
+    <div class="demo-group" id="mode-group">
+        <label class="ui-radio">
+            <input type="radio" class="ui-radio__input" name="mode" value="auto" checked>
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Авто</span>
+        </label>
+
+        <label class="ui-radio">
+            <input type="radio" class="ui-radio__input" name="mode" value="manual">
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Ручной</span>
+        </label>
+
+        <label class="ui-radio">
+            <input type="radio" class="ui-radio__input" name="mode" value="off">
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Выкл</span>
+        </label>
+    </div>
+
+    <h2>Группа 2: Скорость</h2>
+    <div class="demo-group" id="speed-group">
+        <label class="ui-radio ui-radio_sm">
+            <input type="radio" class="ui-radio__input" name="speed" value="low" checked>
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Низкая</span>
+        </label>
+
+        <label class="ui-radio ui-radio_sm">
+            <input type="radio" class="ui-radio__input" name="speed" value="mid">
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Средняя</span>
+        </label>
+
+        <label class="ui-radio ui-radio_sm">
+            <input type="radio" class="ui-radio__input" name="speed" value="high" disabled>
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Высокая (недоступно)</span>
+        </label>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+    <div class="demo-group" id="mode-js-group">
+        <label class="ui-radio">
+            <input type="radio" class="ui-radio__input" name="mode_js" value="cool" checked>
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Охлаждение</span>
+        </label>
+
+        <label class="ui-radio">
+            <input type="radio" class="ui-radio__input" name="mode_js" value="heat">
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Нагрев</span>
+        </label>
+
+        <label class="ui-radio">
+            <input type="radio" class="ui-radio__input" name="mode_js" value="neutral">
+            <span class="ui-radio__circle"></span>
+            <span class="ui-radio__label">Нейтрально</span>
+        </label>
+    </div>
+
+    <div class="demo-buttons">
+        <button type="button" id="btn-set-heat">Установить "Нагрев"</button>
+        <button type="button" id="btn-get-value">Показать текущее значение</button>
+        <button type="button" id="btn-disable-group">Отключить группу</button>
+        <button type="button" id="btn-enable-group">Включить группу</button>
+    </div>
+
+    <p id="js-output" class="demo-output"></p>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="radio.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+/* Общий фон и базовая типографика демо */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #151820;
+    color: #f4f4f4;
+}
+
+/* Корневой контейнер приложения */
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка */
+
+.app__header {
+    padding: 12px 20px;
+    border-bottom: 1px solid #252a36;
+    background: linear-gradient(to right, #171b23, #1d2230);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.app__title-main {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.app__title-sub {
+    font-size: 12px;
+    color: #8b92a7;
+}
+
+.app__status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.app__status-label {
+    color: #cfd6e6;
+}
+
+.app__status-indicator {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.app__status-indicator_disconnected {
+    background: #2a2023;
+    border-color: #5b3139;
+    color: #f2b1b7;
+}
+
+.app__status-indicator_connected {
+    background: #1f2f22;
+    border-color: #3c6b49;
+    color: #b9f3c5;
+}
+
+/* Контент */
+
+.app__content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(320px, 420px) minmax(360px, 1fr);
+    gap: 20px;
+    padding: 16px 20px 20px;
+    box-sizing: border-box;
+}
+
+.app__col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Сетка внутри groupbox */
+
+.app__group-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+@media (min-width: 720px) {
+    #gb-connection .app__group-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 880px) {
+    #gb-connection .app__group-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Пара компактных рядов с label/value */
+
+.app__status-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: start;
+}
+
+.app__kv {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.app__kv-label {
+    color: #a7afc6;
+}
+
+.app__kv-value {
+    font-weight: 500;
+}
+
+/* Ряд кнопок */
+
+.app__btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Лог */
+
+.app__log {
+    margin: 0 0 8px;
+    padding: 8px 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 11px;
+    background: #141820;
+    border-radius: 6px;
+    border: 1px solid #2b3040;
+    box-sizing: border-box;
+}

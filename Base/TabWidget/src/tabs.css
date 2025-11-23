@@ -1,0 +1,161 @@
+/* ===== ДЕМО ОФОРМЛЕНИЕ ===== */
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #1c1f24;
+    color: #f4f4f4;
+}
+
+.demo h1 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.demo h2 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.demo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.demo-buttons > button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #3b4252;
+    background: #2a2f3a;
+    color: #e5e9f0;
+    cursor: pointer;
+    transition: background 0.12s ease-out, border-color 0.12s ease-out;
+}
+
+.demo-buttons > button:hover {
+    background: #323846;
+    border-color: #4c566a;
+}
+
+.demo-output {
+    font-size: 13px;
+    color: #d8dee9;
+    min-height: 18px;
+    margin-top: 4px;
+}
+
+/* ===== UI TABS ===== */
+
+.ui-tabs {
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+    border-radius: 10px;
+    border: 1px solid #2c313d;
+    background: #20232b;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 13px;
+    color: #e3e7f0;
+}
+
+.ui-tabs_sm {
+    font-size: 12px;
+}
+
+/* Заголовки вкладок */
+
+.ui-tabs__header {
+    display: flex;
+    gap: 2px;
+    padding: 4px;
+    background: #1c1f27;
+    border-bottom: 1px solid #2c313d;
+    box-sizing: border-box;
+}
+
+.ui-tabs__tab {
+    position: relative;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: #cfd6e6;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    transition:
+        background 0.12s ease-out,
+        color 0.12s ease-out,
+        box-shadow 0.12s ease-out;
+}
+
+.ui-tabs_sm .ui-tabs__tab {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* hover */
+
+.ui-tabs__tab:hover:not(.ui-tabs__tab_active):not(.ui-tabs__tab_disabled) {
+    background: #262c3a;
+}
+
+/* активная вкладка */
+
+.ui-tabs__tab_active {
+    background: #2d7dff;
+    color: #ffffff;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* disabled */
+
+.ui-tabs__tab_disabled,
+.ui-tabs__tab:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* focus-visible */
+
+.ui-tabs__tab:focus-visible {
+    box-shadow:
+        0 0 0 2px #ffffff,
+        0 0 0 4px rgba(45, 125, 255, 0.8);
+}
+
+/* Панели */
+
+.ui-tabs__panels {
+    padding: 10px 12px 12px;
+    box-sizing: border-box;
+}
+
+.ui-tabs__panel {
+    display: none;
+    font-size: inherit;
+    color: inherit;
+}
+
+.ui-tabs__panel_active {
+    display: block;
+}

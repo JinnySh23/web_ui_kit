@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Progress demo</title>
+    <link rel="stylesheet" href="progress.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI Progress Bars</h1>
+
+    <h2>Базовые примеры</h2>
+    <div class="demo-group">
+        <!-- Обычный прогресс -->
+        <div class="ui-progress" data-ui-progress data-value="40" data-min="0" data-max="100">
+            <div class="ui-progress__header">
+                <span class="ui-progress__label">Загрузка данных</span>
+                <span class="ui-progress__value"></span>
+            </div>
+            <div class="ui-progress__track">
+                <div class="ui-progress__bar"></div>
+            </div>
+        </div>
+
+        <!-- Маленький -->
+        <div class="ui-progress ui-progress_sm" data-ui-progress data-value="70">
+            <div class="ui-progress__header">
+                <span class="ui-progress__label">Инициализация</span>
+                <span class="ui-progress__value"></span>
+            </div>
+            <div class="ui-progress__track">
+                <div class="ui-progress__bar"></div>
+            </div>
+        </div>
+
+        <!-- Indeterminate -->
+        <div class="ui-progress ui-progress_indeterminate" data-ui-progress>
+            <div class="ui-progress__header">
+                <span class="ui-progress__label">Ожидание сервера</span>
+                <span class="ui-progress__value ui-progress__value_dim">…</span>
+            </div>
+            <div class="ui-progress__track">
+                <div class="ui-progress__bar"></div>
+            </div>
+        </div>
+
+        <!-- Disabled -->
+        <div class="ui-progress ui-progress_disabled" data-ui-progress data-value="25">
+            <div class="ui-progress__header">
+                <span class="ui-progress__label">Отключено</span>
+                <span class="ui-progress__value"></span>
+            </div>
+            <div class="ui-progress__track">
+                <div class="ui-progress__bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+    <div class="demo-group">
+        <div class="ui-progress" id="progress-demo" data-ui-progress data-value="10">
+            <div class="ui-progress__header">
+                <span class="ui-progress__label">Передача файла</span>
+                <span class="ui-progress__value"></span>
+            </div>
+            <div class="ui-progress__track">
+                <div class="ui-progress__bar"></div>
+            </div>
+        </div>
+
+        <div class="demo-buttons">
+            <button type="button" id="btn-pg-0">0%</button>
+            <button type="button" id="btn-pg-25">25%</button>
+            <button type="button" id="btn-pg-50">50%</button>
+            <button type="button" id="btn-pg-100">100%</button>
+            <button type="button" id="btn-pg-plus10">+10%</button>
+            <button type="button" id="btn-pg-indeterminate">Indeterminate</button>
+            <button type="button" id="btn-pg-disable">Disable</button>
+            <button type="button" id="btn-pg-enable">Enable</button>
+            <button type="button" id="btn-pg-label">Сменить текст</button>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="progress.js"></script>
+</body>
+</html>

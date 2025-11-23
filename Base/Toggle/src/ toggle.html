@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Toggle demo</title>
+    <link rel="stylesheet" href="toggle.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI Toggles</h1>
+
+    <div class="demo-group">
+        <label class="ui-toggle">
+            <input type="checkbox" class="ui-toggle__input" checked>
+            <span class="ui-toggle__track">
+                <span class="ui-toggle__thumb"></span>
+            </span>
+            <span class="ui-toggle__label">Питание</span>
+        </label>
+
+        <label class="ui-toggle">
+            <input type="checkbox" class="ui-toggle__input">
+            <span class="ui-toggle__track">
+                <span class="ui-toggle__thumb"></span>
+            </span>
+            <span class="ui-toggle__label">Wi-Fi</span>
+        </label>
+
+        <label class="ui-toggle ui-toggle_sm">
+            <input type="checkbox" class="ui-toggle__input" checked>
+            <span class="ui-toggle__track">
+                <span class="ui-toggle__thumb"></span>
+            </span>
+            <span class="ui-toggle__label">Мелкий тумблер</span>
+        </label>
+
+        <label class="ui-toggle">
+            <input type="checkbox" class="ui-toggle__input" disabled checked>
+            <span class="ui-toggle__track">
+                <span class="ui-toggle__thumb"></span>
+            </span>
+            <span class="ui-toggle__label">Недоступно</span>
+        </label>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+
+    <div class="demo-group">
+        <label class="ui-toggle" id="toggle-demo">
+            <input type="checkbox" class="ui-toggle__input">
+            <span class="ui-toggle__track">
+                <span class="ui-toggle__thumb"></span>
+            </span>
+            <span class="ui-toggle__label">Тумблер через JS</span>
+        </label>
+
+        <div class="demo-buttons">
+            <button type="button" id="btn-on">Включить</button>
+            <button type="button" id="btn-off">Выключить</button>
+            <button type="button" id="btn-toggle">Переключить</button>
+            <button type="button" id="btn-disable">Отключить</button>
+            <button type="button" id="btn-enable">Включить управление</button>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="toggle.js"></script>
+</body>
+</html>

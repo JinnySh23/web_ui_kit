@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI LineEdit demo</title>
+    <link rel="stylesheet" href="lineedit.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI LineEdits</h1>
+
+    <h2>Базовые поля</h2>
+    <div class="demo-group">
+        <div class="ui-lineedit" data-ui-lineedit>
+            <label class="ui-lineedit__label">Имя</label>
+            <div class="ui-lineedit__field">
+                <input type="text" class="ui-lineedit__input" placeholder="Введите имя">
+            </div>
+            <div class="ui-lineedit__hint">Будет отображаться в интерфейсе устройства</div>
+        </div>
+
+        <div class="ui-lineedit" data-ui-lineedit>
+            <label class="ui-lineedit__label">Пароль</label>
+            <div class="ui-lineedit__field">
+                <input type="password" class="ui-lineedit__input" placeholder="••••••••">
+            </div>
+            <div class="ui-lineedit__hint">Минимум 8 символов</div>
+        </div>
+
+        <div class="ui-lineedit ui-lineedit_sm" data-ui-lineedit>
+            <label class="ui-lineedit__label">Токен</label>
+            <div class="ui-lineedit__field">
+                <input type="text" class="ui-lineedit__input" value="ABC-123" spellcheck="false">
+            </div>
+        </div>
+
+        <div class="ui-lineedit ui-lineedit_disabled" data-ui-lineedit>
+            <label class="ui-lineedit__label">Только для чтения</label>
+            <div class="ui-lineedit__field">
+                <input type="text" class="ui-lineedit__input" value="Режим сервиса" disabled>
+            </div>
+        </div>
+    </div>
+
+    <h2>Поле с ошибкой (валидация)</h2>
+    <div class="demo-group">
+        <div class="ui-lineedit ui-lineedit_error" data-ui-lineedit id="lineedit-email-demo">
+            <label class="ui-lineedit__label">E-mail</label>
+            <div class="ui-lineedit__field">
+                <input type="email" class="ui-lineedit__input" placeholder="name@example.com">
+            </div>
+            <div class="ui-lineedit__hint ui-lineedit__error-text">
+                Некорректный адрес e-mail
+            </div>
+        </div>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+    <div class="demo-group">
+        <div class="ui-lineedit" data-ui-lineedit id="lineedit-js-demo">
+            <label class="ui-lineedit__label">Адрес устройства</label>
+            <div class="ui-lineedit__field">
+                <input type="text" class="ui-lineedit__input" placeholder="192.168.0.10">
+            </div>
+            <div class="ui-lineedit__hint">IPv4 или hostname</div>
+        </div>
+
+        <div class="demo-buttons">
+            <button type="button" id="btn-le-set">Установить 192.168.0.100</button>
+            <button type="button" id="btn-le-get">Показать значение</button>
+            <button type="button" id="btn-le-error">Показать ошибку</button>
+            <button type="button" id="btn-le-clear-error">Убрать ошибку</button>
+            <button type="button" id="btn-le-disable">Отключить</button>
+            <button type="button" id="btn-le-enable">Включить</button>
+            <button type="button" id="btn-le-focus">Фокус</button>
+        </div>
+
+        <p id="lineedit-js-output" class="demo-output"></p>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="lineedit.js"></script>
+</body>
+</html>

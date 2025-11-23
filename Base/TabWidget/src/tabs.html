@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Tabs demo</title>
+    <link rel="stylesheet" href="tabs.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI Tabs</h1>
+
+    <h2>Базовый TabWidget</h2>
+    <div class="demo-group">
+        <div class="ui-tabs" data-ui-tabs>
+            <div class="ui-tabs__header">
+                <button type="button" class="ui-tabs__tab" data-tab-id="general" data-active="1">
+                    Общие
+                </button>
+                <button type="button" class="ui-tabs__tab" data-tab-id="network">
+                    Сеть
+                </button>
+                <button type="button" class="ui-tabs__tab" data-tab-id="logging">
+                    Логи
+                </button>
+            </div>
+            <div class="ui-tabs__panels">
+                <div class="ui-tabs__panel" data-tab-id="general">
+                    <p>Здесь могут быть общие параметры устройства.</p>
+                </div>
+                <div class="ui-tabs__panel" data-tab-id="network">
+                    <p>Сетевые настройки: IP, порт, протокол и т.п.</p>
+                </div>
+                <div class="ui-tabs__panel" data-tab-id="logging">
+                    <p>Конфигурация логирования, уровни, хранилище и т.д.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Компактные вкладки + disabled</h2>
+    <div class="demo-group">
+        <div class="ui-tabs ui-tabs_sm" data-ui-tabs>
+            <div class="ui-tabs__header">
+                <button type="button" class="ui-tabs__tab" data-tab-id="info" data-active="1">
+                    Инфо
+                </button>
+                <button type="button" class="ui-tabs__tab ui-tabs__tab_disabled" data-tab-id="advanced" disabled>
+                    Продвинуто
+                </button>
+            </div>
+            <div class="ui-tabs__panels">
+                <div class="ui-tabs__panel" data-tab-id="info">
+                    <p>Краткая информация о системе.</p>
+                </div>
+                <div class="ui-tabs__panel" data-tab-id="advanced">
+                    <p>Продвинутые настройки (сейчас недоступны).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+    <div class="demo-group">
+        <div class="ui-tabs" data-ui-tabs id="tabs-js-demo">
+            <div class="ui-tabs__header">
+                <button type="button" class="ui-tabs__tab" data-tab-id="status" data-active="1">
+                    Статус
+                </button>
+                <button type="button" class="ui-tabs__tab" data-tab-id="config">
+                    Конфигурация
+                </button>
+                <button type="button" class="ui-tabs__tab" data-tab-id="diag">
+                    Диагностика
+                </button>
+            </div>
+            <div class="ui-tabs__panels">
+                <div class="ui-tabs__panel" data-tab-id="status">
+                    <p>Состояние устройства, температуры, питание и т.п.</p>
+                </div>
+                <div class="ui-tabs__panel" data-tab-id="config">
+                    <p>Параметры конфигурации для демо JS-API.</p>
+                </div>
+                <div class="ui-tabs__panel" data-tab-id="diag">
+                    <p>Диагностика, последние ошибки, self-test.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-buttons">
+            <button type="button" id="btn-tab-status">Статус</button>
+            <button type="button" id="btn-tab-config">Конфигурация</button>
+            <button type="button" id="btn-tab-diag">Диагностика</button>
+            <button type="button" id="btn-tab-get">Кто активен?</button>
+            <button type="button" id="btn-tab-disable-diag">Disable "Диагностика"</button>
+            <button type="button" id="btn-tab-enable-diag">Enable "Диагностика"</button>
+        </div>
+
+        <p id="tabs-js-output" class="demo-output"></p>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="tabs.js"></script>
+</body>
+</html>

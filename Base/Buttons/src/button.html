@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Button demo</title>
+    <link rel="stylesheet" href="button.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI Buttons</h1>
+
+    <div class="demo-row">
+        <!-- Обычная кнопка -->
+        <button class="ui-btn ui-btn_primary" type="button">
+            ОК
+        </button>
+
+        <!-- Secondary -->
+        <button class="ui-btn ui-btn_secondary" type="button">
+            Отмена
+        </button>
+
+        <!-- Мелкая -->
+        <button class="ui-btn ui-btn_primary ui-btn_sm" type="button">
+            Мелкая
+        </button>
+
+        <!-- Отключена -->
+        <button class="ui-btn ui-btn_primary" type="button" disabled>
+            Отключена
+        </button>
+    </div>
+
+    <h2>Toggle и loading примеры</h2>
+
+    <div class="demo-row">
+        <!-- Toggle-кнопка -->
+        <button class="ui-btn ui-btn_secondary"
+                type="button"
+                data-ui-btn-toggle>
+            Режим
+        </button>
+
+        <!-- Кнопка с loading-состоянием -->
+        <button class="ui-btn ui-btn_primary"
+                type="button"
+                id="btn-demo-loading"
+                data-ui-btn-loading
+                data-loading-text="Подождите...">
+            Сохранить
+        </button>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="button.js"></script>
+</body>
+</html>

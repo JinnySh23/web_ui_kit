@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Device UI Kit Demo</title>
+
+    <!-- Базовая разметка страницы демо -->
+    <link rel="stylesheet" href="demo.css">
+
+    <!-- Стили виджетов -->
+    <link rel="stylesheet" href="../Base/Buttons/src/button.css">
+    <link rel="stylesheet" href="../Base/Checkbox/src/checkbox.css">
+    <link rel="stylesheet" href="../Base/Toggle/src/toggle.css">
+    <link rel="stylesheet" href="../Base/Slider/src/slider.css">
+    <link rel="stylesheet" href="../Base/ProgressBar/src/progress.css">
+    <link rel="stylesheet" href="../Base/Lineedit/src/lineedit.css">
+    <link rel="stylesheet" href="../Base/GroupBox/src/groupbox.css">
+    <link rel="stylesheet" href="../Base/ComboBox/src/combo.css">
+    <link rel="stylesheet" href="../Base/TabWidget/src/tabs.css">
+</head>
+<body>
+
+<div class="app">
+    <header class="app__header">
+        <div class="app__title">
+            <div class="app__title-main">Device Control Panel</div>
+            <div class="app__title-sub">UI Kit (HTML + CSS + jQuery)</div>
+        </div>
+        <div class="app__status">
+            <span class="app__status-label">Состояние:</span>
+            <span class="app__status-indicator app__status-indicator_disconnected" id="app-status-indicator">
+                Отключено
+            </span>
+        </div>
+    </header>
+
+    <main class="app__content">
+        <!-- Левая колонка: подключение и управление -->
+        <div class="app__col app__col_left">
+
+            <!-- GroupBox: Подключение -->
+            <div class="ui-groupbox" data-ui-groupbox id="gb-connection">
+                <div class="ui-groupbox__header">
+                    <div class="ui-groupbox__titles">
+                        <div class="ui-groupbox__title">Подключение к устройству</div>
+                        <div class="ui-groupbox__subtitle">Адрес, протокол и управление соединением</div>
+                    </div>
+                </div>
+                <div class="ui-groupbox__body app__group-grid">
+
+                    <!-- Адрес -->
+                    <div class="ui-lineedit" data-ui-lineedit id="le-address">
+                        <label class="ui-lineedit__label">Адрес</label>
+                        <div class="ui-lineedit__field">
+                            <input type="text" class="ui-lineedit__input" placeholder="192.168.0.10">
+                        </div>
+                        <div class="ui-lineedit__hint">IPv4 или hostname контроллера</div>
+                    </div>
+
+                    <!-- Порт -->
+                    <div class="ui-lineedit" data-ui-lineedit id="le-port">
+                        <label class="ui-lineedit__label">Порт</label>
+                        <div class="ui-lineedit__field">
+                            <input type="text" class="ui-lineedit__input" placeholder="502">
+                        </div>
+                        <div class="ui-lineedit__hint">Например: 502 (Modbus TCP)</div>
+                    </div>
+
+                    <!-- Протокол -->
+                    <div class="ui-combo" data-ui-combo id="combo-proto">
+                        <label class="ui-combo__label">Протокол</label>
+                        <div class="ui-combo__field">
+                            <select class="ui-combo__select" name="proto">
+                                <option value="tcp" selected>TCP</option>
+                                <option value="udp">UDP</option>
+                                <option value="serial">Serial (RS-485)</option>
+                            </select>
+                            <button type="button" class="ui-combo__value"></button>
+                            <div class="ui-combo__dropdown"></div>
+                        </div>
+                        <div class="ui-combo__hint">Тип канала связи с устройством</div>
+                    </div>
+
+                    <!-- Автореконнект -->
+                    <div class="ui-chk" id="chk-autoreconnect">
+                        <input type="checkbox" class="ui-chk__input" checked>
+                        <span class="ui-chk__box"></span>
+                        <span class="ui-chk__label">Автоматически переподключаться</span>
+                    </div>
+
+                    <!-- Кнопки управления соединением -->
+                    <div class="app__btn-row">
+                        <button class="ui-btn ui-btn_primary" type="button" id="btn-connect">
+                            Подключиться
+                        </button>
+                        <button class="ui-btn ui-btn_secondary" type="button" id="btn-disconnect">
+                            Отключиться
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GroupBox: Управление -->
+            <div class="ui-groupbox" data-ui-groupbox id="gb-control">
+                <div class="ui-groupbox__header">
+                    <div class="ui-groupbox__titles">
+                        <div class="ui-groupbox__title">Основное управление</div>
+                        <div class="ui-groupbox__subtitle">Питание, мощность, режимы</div>
+                    </div>
+                </div>
+                <div class="ui-groupbox__body app__group-grid">
+
+                    <!-- Питание -->
+                    <label class="ui-toggle" id="toggle-power">
+                        <input type="checkbox" class="ui-toggle__input">
+                        <span class="ui-toggle__track">
+                            <span class="ui-toggle__thumb"></span>
+                        </span>
+                        <span class="ui-toggle__label">Питание устройства</span>
+                    </label>
+
+                    <!-- Режим работы -->
+                    <div class="ui-combo ui-combo_sm" data-ui-combo id="combo-mode">
+                        <label class="ui-combo__label">Режим</label>
+                        <div class="ui-combo__field">
+                            <select class="ui-combo__select" name="mode">
+                                <option value="normal" selected>Нормальный</option>
+                                <option value="eco">Эко</option>
+                                <option value="boost">Boost</option>
+                            </select>
+                            <button type="button" class="ui-combo__value"></button>
+                            <div class="ui-combo__dropdown"></div>
+                        </div>
+                    </div>
+
+                    <!-- Яркость/мощность -->
+                    <div class="ui-slider" data-ui-slider id="slider-power">
+                        <label class="ui-slider__label">Мощность</label>
+                        <div class="ui-slider__row">
+                            <span class="ui-slider__min">0%</span>
+                            <input
+                                type="range"
+                                class="ui-slider__input"
+                                min="0"
+                                max="100"
+                                value="30"
+                            >
+                            <span class="ui-slider__max">100%</span>
+                            <span class="ui-slider__value"></span>
+                        </div>
+                    </div>
+
+                    <!-- Автозапуск -->
+                    <div class="ui-chk ui-chk_sm" id="chk-autostart">
+                        <input type="checkbox" class="ui-chk__input">
+                        <span class="ui-chk__box"></span>
+                        <span class="ui-chk__label">Запускать при подаче питания</span>
+                    </div>
+
+                    <!-- Кнопка применения -->
+                    <div class="app__btn-row">
+                        <button class="ui-btn ui-btn_primary"
+                                type="button"
+                                id="btn-apply"
+                                data-ui-btn-loading
+                                data-loading-text="Применяю...">
+                            Применить настройки
+                        </button>
+                        <button class="ui-btn ui-btn_secondary ui-btn_sm"
+                                type="button"
+                                id="btn-reset">
+                            Сбросить
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Правая колонка: вкладки статуса/логов -->
+        <div class="app__col app__col_right">
+            <div class="ui-tabs" data-ui-tabs id="tabs-main">
+                <div class="ui-tabs__header">
+                    <button type="button" class="ui-tabs__tab" data-tab-id="status" data-active="1">
+                        Статус
+                    </button>
+                    <button type="button" class="ui-tabs__tab" data-tab-id="telemetry">
+                        Телеметрия
+                    </button>
+                    <button type="button" class="ui-tabs__tab" data-tab-id="logs">
+                        Логи
+                    </button>
+                </div>
+                <div class="ui-tabs__panels">
+
+                    <!-- Панель: Статус -->
+                    <div class="ui-tabs__panel" data-tab-id="status">
+                        <div class="ui-groupbox" data-ui-groupbox id="gb-status">
+                            <div class="ui-groupbox__header">
+                                <div class="ui-groupbox__titles">
+                                    <div class="ui-groupbox__title">Состояние устройства</div>
+                                </div>
+                            </div>
+                            <div class="ui-groupbox__body app__status-grid">
+
+                                <!-- Прогресс задания -->
+                                <div class="ui-progress" data-ui-progress id="progress-job" data-value="0">
+                                    <div class="ui-progress__header">
+                                        <span class="ui-progress__label">Текущее задание</span>
+                                        <span class="ui-progress__value"></span>
+                                    </div>
+                                    <div class="ui-progress__track">
+                                        <div class="ui-progress__bar"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Температура -->
+                                <div class="app__kv">
+                                    <div class="app__kv-label">Температура:</div>
+                                    <div class="app__kv-value" id="kv-temp">--.- °C</div>
+                                </div>
+
+                                <!-- Напряжение -->
+                                <div class="app__kv">
+                                    <div class="app__kv-label">Напряжение:</div>
+                                    <div class="app__kv-value" id="kv-voltage">--.- V</div>
+                                </div>
+
+                                <!-- Состояние питания -->
+                                <div class="app__kv">
+                                    <div class="app__kv-label">Питание:</div>
+                                    <div class="app__kv-value" id="kv-power-state">Выкл</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Панель: Телеметрия -->
+                    <div class="ui-tabs__panel" data-tab-id="telemetry">
+                        <div class="ui-groupbox ui-groupbox_collapsible" data-ui-groupbox data-collapsible="1">
+                            <div class="ui-groupbox__header">
+                                <button type="button" class="ui-groupbox__toggle"></button>
+                                <div class="ui-groupbox__titles">
+                                    <div class="ui-groupbox__title">Телеметрия (демо)</div>
+                                    <div class="ui-groupbox__subtitle">Псевдослучайные значения</div>
+                                </div>
+                            </div>
+                            <div class="ui-groupbox__body">
+                                <p id="telemetry-text">Ожидаем подключение...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Панель: Логи -->
+                    <div class="ui-tabs__panel" data-tab-id="logs">
+                        <div class="ui-groupbox" data-ui-groupbox>
+                            <div class="ui-groupbox__header">
+                                <div class="ui-groupbox__titles">
+                                    <div class="ui-groupbox__title">Журнал событий</div>
+                                </div>
+                            </div>
+                            <div class="ui-groupbox__body">
+                                <pre class="app__log" id="log-output">Лог пуст...</pre>
+                                <button class="ui-btn ui-btn_secondary ui-btn_sm" type="button" id="btn-log-clear">
+                                    Очистить лог
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- JS виджетов -->
+<script src="../Base/Buttons/src/button.js"></script>
+<script src="../Base/Checkbox/src/checkbox.js"></script>
+<script src="../Base/Toggle/src/toggle.js"></script>
+<script src="../Base/Slider/src/slider.js"></script>
+<script src="../Base/ProgressBar/src/progress.js"></script>
+<script src="../Base/Lineedit/src/lineedit.js"></script>
+<script src="../Base/GroupBox/src/groupbox.js"></script>
+<script src="../Base/ComboBox/src/combo.js"></script>
+<script src="../Base/TabWidget/src/tabs.js"></script>
+
+<!-- Логика конкретно демо -->
+<script src="demo.js"></script>
+</body>
+</html>

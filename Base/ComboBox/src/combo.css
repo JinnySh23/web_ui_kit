@@ -1,0 +1,233 @@
+/* ===== ДЕМО ОФОРМЛЕНИЕ ===== */
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #1c1f24;
+    color: #f4f4f4;
+}
+
+.demo h1 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.demo h2 {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.demo-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.demo-buttons > button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #3b4252;
+    background: #2a2f3a;
+    color: #e5e9f0;
+    cursor: pointer;
+    transition: background 0.12s ease-out, border-color 0.12s ease-out;
+}
+
+.demo-buttons > button:hover {
+    background: #323846;
+    border-color: #4c566a;
+}
+
+.demo-output {
+    font-size: 13px;
+    color: #d8dee9;
+    min-height: 18px;
+    margin-top: 4px;
+}
+
+/* ===== UI COMBO ===== */
+
+.ui-combo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 280px;
+    font-size: 13px;
+    color: #e3e7f0;
+    position: relative;
+}
+
+.ui-combo_sm {
+    font-size: 12px;
+}
+
+.ui-combo__label {
+    font-size: 12px;
+    color: #cfd6e6;
+}
+
+/* поле */
+
+.ui-combo__field {
+    position: relative;
+}
+
+/* скрытый нативный select */
+.ui-combo__select {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* видимая кнопка с текущим значением */
+
+.ui-combo__value {
+    width: 100%;
+    padding: 7px 28px 7px 10px;
+    border-radius: 6px;
+    border: 1px solid #3b4252;
+    background: #232731;
+    color: #e5e9f0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.4;
+    text-align: left;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition:
+        border-color 0.12s ease-out,
+        box-shadow 0.12s ease-out,
+        background 0.12s ease-out;
+}
+
+/* стрелка */
+
+.ui-combo__value::after {
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid #e5e9f0;
+    border-right: 2px solid #e5e9f0;
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+    transition: transform 0.12s ease-out, top 0.12s ease-out;
+}
+
+/* hover */
+
+.ui-combo__field:hover .ui-combo__value:not(.ui-combo__value_disabled) {
+    border-color: #4c566a;
+}
+
+/* focus-visible */
+
+.ui-combo__value:focus-visible {
+    border-color: #2d7dff;
+    box-shadow:
+        0 0 0 1px rgba(45, 125, 255, 0.6),
+        0 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+/* disabled */
+
+.ui-combo_disabled .ui-combo__value,
+.ui-combo__value_disabled {
+    background: #22252d;
+    color: #9095a5;
+    border-color: #343945;
+    cursor: default;
+}
+
+.ui-combo_disabled .ui-combo__label,
+.ui-combo_disabled .ui-combo__hint {
+    color: #7a8295;
+}
+
+/* Подсказка */
+
+.ui-combo__hint {
+    font-size: 11px;
+    color: #848da3;
+}
+
+/* DROPDOWN */
+
+.ui-combo__dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    border-radius: 8px;
+    border: 1px solid #343a49;
+    background: #20242f;
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+    padding: 4px 0;
+    box-sizing: border-box;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 2000;
+    display: none;
+}
+
+/* элемент списка */
+
+.ui-combo__option {
+    width: 100%;
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    color: #e5e9f0;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ui-combo__option:hover {
+    background: #2d3342;
+}
+
+.ui-combo__option_selected {
+    background: #272d3b;
+}
+
+.ui-combo__option_selected::before {
+    content: "●";
+    font-size: 9px;
+    color: #6fa3ff;
+}
+
+/* открытое состояние */
+
+.ui-combo_open .ui-combo__dropdown {
+    display: block;
+}
+
+.ui-combo_open .ui-combo__value::after {
+    transform: translateY(-50%) rotate(-135deg);
+    top: calc(50% + 1px);
+}

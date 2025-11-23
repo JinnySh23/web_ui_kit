@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI ComboBox demo</title>
+    <link rel="stylesheet" href="combo.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI ComboBox</h1>
+
+    <h2>Базовые примеры</h2>
+    <div class="demo-group">
+        <!-- Обычный -->
+        <div class="ui-combo" data-ui-combo>
+            <label class="ui-combo__label">Режим работы</label>
+            <div class="ui-combo__field">
+                <select class="ui-combo__select" name="mode">
+                    <option value="auto" selected>Автоматический</option>
+                    <option value="manual">Ручной</option>
+                    <option value="service">Сервисный</option>
+                </select>
+                <button type="button" class="ui-combo__value"></button>
+                <div class="ui-combo__dropdown"></div>
+            </div>
+            <div class="ui-combo__hint">Выберите режим контроллера</div>
+        </div>
+
+        <!-- Маленький -->
+        <div class="ui-combo ui-combo_sm" data-ui-combo>
+            <label class="ui-combo__label">Скорость</label>
+            <div class="ui-combo__field">
+                <select class="ui-combo__select" name="speed">
+                    <option value="low">Низкая</option>
+                    <option value="mid" selected>Средняя</option>
+                    <option value="high">Высокая</option>
+                </select>
+                <button type="button" class="ui-combo__value"></button>
+                <div class="ui-combo__dropdown"></div>
+            </div>
+        </div>
+
+        <!-- Disabled -->
+        <div class="ui-combo ui-combo_disabled" data-ui-combo>
+            <label class="ui-combo__label">Порт</label>
+            <div class="ui-combo__field">
+                <select class="ui-combo__select" name="port" disabled>
+                    <option value="COM1">COM1</option>
+                    <option value="COM2" selected>COM2</option>
+                    <option value="COM3">COM3</option>
+                </select>
+                <button type="button" class="ui-combo__value"></button>
+                <div class="ui-combo__dropdown"></div>
+            </div>
+            <div class="ui-combo__hint">Доступно только в режиме отладки</div>
+        </div>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+    <div class="demo-group">
+        <div class="ui-combo" data-ui-combo id="combo-js-demo">
+            <label class="ui-combo__label">Протокол</label>
+            <div class="ui-combo__field">
+                <select class="ui-combo__select" name="proto">
+                    <option value="tcp" selected>TCP</option>
+                    <option value="udp">UDP</option>
+                    <option value="serial">Serial (RS-485)</option>
+                </select>
+                <button type="button" class="ui-combo__value"></button>
+                <div class="ui-combo__dropdown"></div>
+            </div>
+            <div class="ui-combo__hint">Пример комбобокса, которым рулит JS</div>
+        </div>
+
+        <div class="demo-buttons">
+            <button type="button" id="btn-cb-tcp">TCP</button>
+            <button type="button" id="btn-cb-udp">UDP</button>
+            <button type="button" id="btn-cb-serial">Serial</button>
+            <button type="button" id="btn-cb-get">Показать значение</button>
+            <button type="button" id="btn-cb-open">Открыть</button>
+            <button type="button" id="btn-cb-close">Закрыть</button>
+            <button type="button" id="btn-cb-disable">Отключить</button>
+            <button type="button" id="btn-cb-enable">Включить</button>
+        </div>
+
+        <p id="combo-js-output" class="demo-output"></p>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="combo.js"></script>
+</body>
+</html>

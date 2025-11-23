@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI GroupBox demo</title>
+    <link rel="stylesheet" href="groupbox.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI GroupBox</h1>
+
+    <h2>Базовые панели</h2>
+    <div class="demo-group">
+        <!-- Обычный контейнер -->
+        <div class="ui-groupbox" data-ui-groupbox>
+            <div class="ui-groupbox__header">
+                <div class="ui-groupbox__titles">
+                    <div class="ui-groupbox__title">Сетевые настройки</div>
+                    <div class="ui-groupbox__subtitle">Адреса и порты устройства</div>
+                </div>
+            </div>
+            <div class="ui-groupbox__body">
+                <p>Тут могут быть любые наши элементы: LineEdit, Checkbox, Slider и т.п.</p>
+            </div>
+        </div>
+
+        <!-- Сворачиваемый -->
+        <div class="ui-groupbox ui-groupbox_collapsible" data-ui-groupbox data-collapsible="1">
+            <div class="ui-groupbox__header">
+                <button type="button" class="ui-groupbox__toggle" aria-label="Свернуть/развернуть"></button>
+                <div class="ui-groupbox__titles">
+                    <div class="ui-groupbox__title">Журнал событий</div>
+                    <div class="ui-groupbox__subtitle">Отображение последних операций</div>
+                </div>
+            </div>
+            <div class="ui-groupbox__body">
+                <p>Здесь может быть таблица логов или список сообщений.</p>
+            </div>
+        </div>
+
+        <!-- Компактный -->
+        <div class="ui-groupbox ui-groupbox_sm" data-ui-groupbox>
+            <div class="ui-groupbox__header">
+                <div class="ui-groupbox__title">Системная информация</div>
+            </div>
+            <div class="ui-groupbox__body">
+                <p>Версия: 1.0.3</p>
+                <p>Сборка: 2025-11-23</p>
+            </div>
+        </div>
+
+        <!-- Disabled -->
+        <div class="ui-groupbox ui-groupbox_disabled" data-ui-groupbox>
+            <div class="ui-groupbox__header">
+                <div class="ui-groupbox__title">Настройки сервиса</div>
+                <div class="ui-groupbox__subtitle">Доступно только в режиме обслуживания</div>
+            </div>
+            <div class="ui-groupbox__body">
+                <p>Эти опции сейчас недоступны.</p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+    <div class="demo-group">
+        <div class="ui-groupbox ui-groupbox_collapsible" data-ui-groupbox id="groupbox-js-demo" data-collapsible="1">
+            <div class="ui-groupbox__header">
+                <button type="button" class="ui-groupbox__toggle" aria-label="Свернуть/развернуть"></button>
+                <div class="ui-groupbox__titles">
+                    <div class="ui-groupbox__title">Блок управления</div>
+                    <div class="ui-groupbox__subtitle">Демонстрация JS-API</div>
+                </div>
+            </div>
+            <div class="ui-groupbox__body">
+                <p>Контент блока управления...</p>
+            </div>
+        </div>
+
+        <div class="demo-buttons">
+            <button type="button" id="btn-gb-collapse">Свернуть</button>
+            <button type="button" id="btn-gb-expand">Развернуть</button>
+            <button type="button" id="btn-gb-toggle">Переключить</button>
+            <button type="button" id="btn-gb-disable">Отключить</button>
+            <button type="button" id="btn-gb-enable">Включить</button>
+            <button type="button" id="btn-gb-title">Сменить заголовок</button>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="groupbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+/* ===== БАЗОВЫЕ НАСТРОЙКИ ДЛЯ ДЕМО ===== */
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #1c1f24;
+    color: #f4f4f4;
+}
+
+.demo h1 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.demo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ===== КНОПКИ UI-KIT ===== */
+
+.ui-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 18px;
+    min-width: 80px;
+
+    border-radius: 6px;
+    border: 1px solid transparent;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+
+    background: #2d7dff;
+    color: #ffffff;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition:
+        background 0.15s ease-out,
+        border-color 0.15s ease-out,
+        box-shadow 0.15s ease-out,
+        transform 0.05s ease-out,
+        color 0.15s ease-out;
+}
+
+/* Варианты */
+
+.ui-btn_primary {
+    background: #2d7dff;
+    border-color: #2462c5;
+    color: #ffffff;
+}
+
+.ui-btn_secondary {
+    background: #2a2d34;
+    border-color: #434854;
+    color: #e0e3ea;
+}
+
+/* Размеры */
+
+.ui-btn_sm {
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+/* Состояния */
+
+.ui-btn:hover:not(:disabled) {
+    filter: brightness(1.05);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.ui-btn:active:not(:disabled) {
+    transform: translateY(1px);
+    filter: brightness(0.96);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) inset;
+}
+
+/* Фокус клавиатурой — как в Qt */
+
+.ui-btn:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 2px #ffffff,
+        0 0 0 4px rgba(45, 125, 255, 0.7);
+}
+
+/* Отключена */
+
+.ui-btn:disabled,
+.ui-btn[disabled] {
+    cursor: default;
+    opacity: 0.5;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Активная toggle-кнопка */
+.ui-btn_active {
+    background: #3aa35b;
+    border-color: #2b7b44;
+    color: #ffffff;
+}
+
+/* Loading-состояние */
+.ui-btn_loading {
+    position: relative;
+    cursor: wait;
+    opacity: 0.8;
+}
+
+/* Можно добавить простой "спиннер" псевдоэлементом */
+.ui-btn_loading::after {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 8px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-top-color: transparent;
+    animation: ui-btn-spinner 0.6s linear infinite;
+}
+
+@keyframes ui-btn-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Checkbox demo</title>
+    <link rel="stylesheet" href="checkbox.css">
+</head>
+<body>
+
+<div class="demo">
+    <h1>UI Checkboxes</h1>
+
+    <div class="demo-group">
+        <label class="ui-chk">
+            <input type="checkbox" class="ui-chk__input" checked>
+            <span class="ui-chk__box"></span>
+            <span class="ui-chk__label">Включить режим</span>
+        </label>
+
+        <label class="ui-chk">
+            <input type="checkbox" class="ui-chk__input">
+            <span class="ui-chk__box"></span>
+            <span class="ui-chk__label">Опция 1</span>
+        </label>
+
+        <label class="ui-chk">
+            <input type="checkbox" class="ui-chk__input" disabled checked>
+            <span class="ui-chk__box"></span>
+            <span class="ui-chk__label">Недоступно</span>
+        </label>
+    </div>
+
+    <h2>Мелкие чекбоксы</h2>
+
+    <div class="demo-group">
+        <label class="ui-chk ui-chk_sm">
+            <input type="checkbox" class="ui-chk__input" checked>
+            <span class="ui-chk__box"></span>
+            <span class="ui-chk__label">Мелкий 1</span>
+        </label>
+
+        <label class="ui-chk ui-chk_sm">
+            <input type="checkbox" class="ui-chk__input">
+            <span class="ui-chk__box"></span>
+            <span class="ui-chk__label">Мелкий 2</span>
+        </label>
+    </div>
+
+    <h2>Пример работы через JS API</h2>
+
+    <div class="demo-group">
+        <label class="ui-chk" id="chk-demo">
+            <input type="checkbox" class="ui-chk__input">
+            <span class="ui-chk__box"></span>
+            <span class="ui-chk__label">Чекбокс через JS</span>
+        </label>
+
+        <button type="button" id="btn-check">Поставить галку</button>
+        <button type="button" id="btn-uncheck">Снять галку</button>
+        <button type="button" id="btn-toggle">Переключить</button>
+        <button type="button" id="btn-indeterminate">Сделать "частично"</button>
+    </div>
+</div>
+
+<!-- jQuery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="checkbox.js"></script>
+</body>
+</html>
